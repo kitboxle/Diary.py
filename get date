@@ -1,0 +1,26 @@
+
+import datetime
+
+class get_date_now():
+    def __init__(self):
+        self.now = datetime.datetime.now()
+        self.date = self.now.strftime("%A") + ', ' + self.now.strftime("%m/%d/%Y")
+
+    
+    def get_time(self):
+        hr = self.now.hour
+        if hr >= 13:
+            hr -= 12
+
+        min = self.now.minute
+        if self.now.minute <10:
+            return f"{hr}:{0}{min} {self.now.strftime('%p')}"
+        else:
+            return f"{hr}:{min} {self.now.strftime('%p')}"
+        
+
+
+if __name__ == '__main__':
+    get_t = get_date_now()
+    print(get_t.get_time())
+        
